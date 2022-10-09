@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+using MySql.Data.MySqlClient;
+using PubSubHubbubAPI.Data;
 using PubSubHubbubAPI.Data.Models;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace PubSubHubbubAPI.Controllers
 {
@@ -26,12 +25,13 @@ namespace PubSubHubbubAPI.Controllers
 
             if (!string.IsNullOrEmpty(bodycontents))
             {
-                var serializer = new XmlSerializer(typeof(YoutubeEventResponse.feed));
+                //var serializer = new XmlSerializer(typeof(YoutubeEventResponse.feed));
 
-                using (StringReader reader = new StringReader(bodycontents))
-                {
-                    var res = (YoutubeEventResponse.feed)serializer.Deserialize(reader);
-                }
+                //using (StringReader reader = new StringReader(bodycontents))
+                //{
+                //    var res = (YoutubeEventResponse.feed)serializer.Deserialize(reader);
+                //}
+                MariaDB.InsertToMariaDB(bodycontents);
             }
         }
     }
