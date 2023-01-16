@@ -20,7 +20,6 @@ builder.Services.Configure<IISServerOptions>(options =>
 var app = builder.Build();
 // Configure the HTTP request pipeline.
 
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
