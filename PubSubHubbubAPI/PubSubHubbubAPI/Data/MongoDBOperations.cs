@@ -12,15 +12,15 @@ namespace PubSubHubbubAPI.Data
 
             var client = new MongoClient(connection);
             var database = client.GetDatabase("pubsubhubbub");
-            var countersCollection = database.GetCollection<BsonDocument>("counters");
+            var countersCollection = database.GetCollection<BsonDocument>("Sequence");
             var filter = Builders<BsonDocument>.Filter.Eq("id", "MessageId");
-            var update = Builders<BsonDocument>.Update.Inc("seq", 1);
+            var update = Builders<BsonDocument>.Update.Inc("Sequence", 1);
             var options = new FindOneAndUpdateOptions<BsonDocument>
             {
                 ReturnDocument = ReturnDocument.After
             };
             var sequenceDocument = countersCollection.FindOneAndUpdate(filter, update, options);
-            var nextSequenceValue = sequenceDocument["seq"].AsInt32;
+            var nextSequenceValue = sequenceDocument["Sequence"].AsInt32;
             var document = new BsonDocument
             {
                 { "InboundMessageId", nextSequenceValue },
