@@ -23,7 +23,8 @@ namespace PubSubHubbubAPI.Controllers
 
             if (!string.IsNullOrEmpty(bodycontents))
             {
-                MariaDB.InsertToMariaDB(bodycontents);
+                //MariaDB.InsertToMariaDB(bodycontents);
+                MongoDBOperations.InsertToMongoDB(bodycontents);
             }
         }
     }
