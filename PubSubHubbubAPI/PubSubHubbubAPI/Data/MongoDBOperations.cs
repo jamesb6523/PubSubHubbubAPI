@@ -23,7 +23,7 @@ namespace PubSubHubbubAPI.Data
             var nextSequenceValue = sequenceDocument["Sequence"].AsInt32;
             var document = new BsonDocument
             {
-                { "InboundMessageId", nextSequenceValue },
+                { "InboundMessageId", nextSequenceValue.ToString() },
                 { "MessageText", message },
                 { "DateCreated", DateTime.Now.ToString() },
                 { "Processed", "0" },
