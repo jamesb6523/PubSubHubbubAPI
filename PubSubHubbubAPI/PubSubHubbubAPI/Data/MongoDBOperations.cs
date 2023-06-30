@@ -25,7 +25,7 @@ namespace PubSubHubbubAPI.Data
             {
                 { "InboundMessageId", nextSequenceValue.ToString() },
                 { "MessageText", message },
-                { "DateCreated", DateTime.Now.ToString() },
+                { "DateCreated", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") },
                 { "Processed", "0" },
                 { "Investigate", "0" },
                 { "AlreadyExists", "0" },
