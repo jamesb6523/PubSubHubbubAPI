@@ -1,20 +1,19 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
 using PubSubHubbubAPI.Data;
 
 namespace PubSubHubbubAPI.Controllers
 {
-    public class PubSubHubbubController : Controller
+    public class PubSubHubNaturalSixController : Controller
     {
         [HttpGet]
-        [Route("api/PubSubHubbub")]
+        [Route("api/PubSubHubbub/NaturalSix")]
         public string Get([FromQuery(Name = "hub.challenge")] string challenge)
         {
             return challenge;
         }
 
         [HttpPost]
-        [Route("api/PubSubHubbub")]
+        [Route("api/PubSubHubbub/NaturalSix")]
         public void Post()
         {
             string bodycontents = new StreamReader(Request.Body).ReadToEnd();

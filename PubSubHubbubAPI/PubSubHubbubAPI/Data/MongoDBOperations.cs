@@ -8,7 +8,7 @@ namespace PubSubHubbubAPI.Data
     {
         public static void InsertToMongoDB(string message)
         {
-            string connection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION");
+            string? connection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION");
 
             var client = new MongoClient(connection);
             var database = client.GetDatabase("pubsubhubbub");

@@ -6,7 +6,7 @@ namespace PubSubHubbubAPI.Data
     {
         public static void InsertToMariaDB(string message)
         {
-            string connection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION");
+            string? connection = Environment.GetEnvironmentVariable("DATABASE_CONNECTION");
 
             string commandtext;
             //var cs = @"";
